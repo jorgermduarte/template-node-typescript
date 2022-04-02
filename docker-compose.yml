@@ -1,0 +1,13 @@
+version: "3.6"
+
+services:
+  api:
+    build:
+      dockerfile: ./Dockerfile
+      context: .
+    command: npm start
+
+networks:
+  default:
+    external: true
+    name: nginx_production_default
