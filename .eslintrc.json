@@ -15,5 +15,8 @@
   "plugins": [
     "@typescript-eslint"
   ],
-  "rules": {}
+  "rules": {
+    "linebreak-style": 0,
+    "max-len": 1
+  }
 }

@@ -1,7 +1,14 @@
-FROM node:16:alphine
-WORKDIR /modules-api
+FROM node:16-alpine
+WORKDIR /node-project
 
-COPY ./src /modules-api/src
-COPY package.json /modules-api
-COPY package-lock.json /modules-api
+COPY ./src /node-project/src
+COPY package.json /node-project
+COPY package-lock.json /node-project
+COPY tsconfig*.json /node-project
+
 RUN npm install
+
+RUN npm run build
+
+COPY ./dist /node-project/dist
+
