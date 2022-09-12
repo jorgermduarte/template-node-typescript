@@ -1,8 +1,8 @@
 import express = require('express');
-import {requestLogger} from '../middleware/main/logger.middleware';
+import {requestLoggerMiddleware} from '../middleware/main/logger.middleware';
 
 const startMainMiddlewares = (server: express.Express) => {
-  server.get('*', requestLogger);
+  server.get('*', requestLoggerMiddleware);
 };
 
 export {

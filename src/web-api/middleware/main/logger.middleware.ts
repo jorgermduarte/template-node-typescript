@@ -1,15 +1,13 @@
 import express = require('express');
+import {requestLogger} from '../../../infrastructure/logger/request-logger';
 
-const requestLogger = function(
+const requestLoggerMiddleware = function(
     request: express.Request,
     response: express.Response,
     next: express.NextFunction,
 ) {
-  console.log(
-      `[${new Date().toISOString()}][${request.method}]` +
-    ` - ${request.url} `,
-  );
+  requestLogger.log(request, response);
   next();
 };
 
-export {requestLogger};
+export {requestLoggerMiddleware};
